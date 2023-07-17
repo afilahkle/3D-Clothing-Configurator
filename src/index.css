@@ -43,14 +43,6 @@ html {
   @apply absolute z-10 bottom-5 right-0 left-0 w-full flex justify-center items-center flex-wrap gap-4;
 }
 
-.aipicker-container {
-  @apply absolute left-full ml-3 glassmorphism p-3 w-[195px] h-[220px] rounded-md flex flex-col gap-4;
-}
-
-.aipicker-textarea {
-  @apply w-full bg-transparent text-sm border border-gray-300 p-2 outline-none flex-1;
-}
-
 .filepicker-container {
   @apply absolute left-full ml-3 glassmorphism p-3 w-[195px] h-[220px] flex flex-col rounded-md;
 }
