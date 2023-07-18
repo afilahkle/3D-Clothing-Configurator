@@ -4,7 +4,6 @@ import { useSnapshot } from 'valtio';
 
 import LogoControls from '../canvas/LogoControls';
 import state from '../store';
-import { download } from '../assets';
 import { downloadCanvasToImage, reader } from '../config/helpers';
 import { EditorTabs, FilterTabs, DecalTypes } from '../config/constants';
 import { fadeAnimation, slideAnimation } from '../config/motion';
@@ -56,6 +55,9 @@ const Customizer = () => {
         break;
       case "stylishShirt":
           state.isFullTexture = !activeFilterTab[tabName];
+        break;
+        case "downloadShirt":
+          downloadCanvasToImage();
         break;
       default:
         state.isLogoTexture = true;
