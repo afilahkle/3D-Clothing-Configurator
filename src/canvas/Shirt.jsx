@@ -8,7 +8,7 @@ import state from '../store';
 
 const Shirt = () => {
   const snap = useSnapshot(state);
-  const { nodes, materials } = useGLTF('/shirt_baked.glb');
+  const { nodes, materials } = useGLTF('/shirt.glb');
 
   const logoTexture = useTexture(snap.logoDecal);
   const fullTexture = useTexture(snap.fullDecal);
@@ -22,10 +22,10 @@ const Shirt = () => {
       <OrbitControls />
       <group key={stateString}>
         <mesh
-          castShadow
           geometry={nodes.T_Shirt_male.geometry}
           material={materials.lambert1}
-          material-roughness={1}
+          // material-roughness={0}
+          material-metalness={0.1}
           dispose={null}
         >
           {snap.isFullTexture && (
