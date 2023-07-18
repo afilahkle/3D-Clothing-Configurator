@@ -15,7 +15,7 @@ const LogoControls = () => {
   };
 
   return (
-    <div className="flex flex-col space-y-2">
+    <div className="absolute left-full ml-3">
       <div className="flex items-center space-x-2">
         <span className="text-gray-700">X:</span>
         <button
