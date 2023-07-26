@@ -1,5 +1,5 @@
 {
-  "name": "client",
+  "name": "configurator",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -27,5 +27,15 @@
     "postcss": "^8.4.21",
     "tailwindcss": "^3.3.0",
     "vite": "^4.2.0"
-  }
+  },
+
+  "keywords":[
+        "clothing", 
+        "customization", 
+        "configurator", 
+        "react", 
+        "threejs",
+        "react-three-fiber", 
+        "3D"
+    ]
 }
