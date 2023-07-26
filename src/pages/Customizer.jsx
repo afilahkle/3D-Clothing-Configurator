@@ -16,7 +16,8 @@ const Customizer = () => {
 
   const [activeEditorTab, setActiveEditorTab] = useState("");
   const [activeFilterTab, setActiveFilterTab] = useState({
-    logoShirt: true,
+    frontLogoShirt: true,
+    backLogoShirt: true,
     stylishShirt: false,
   })
 
@@ -69,8 +70,11 @@ const Customizer = () => {
 
   const handleActiveFilterTab = (tabName) => {
     switch (tabName) {
-      case "logoShirt":
-          state.isLogoTexture = !activeFilterTab[tabName];
+      case "frontLogoShirt":
+          state.isFrontLogoTexture = !activeFilterTab[tabName];
+        break;
+      case "backLogoShirt":
+          state.isBackLogoTexture = !activeFilterTab[tabName];
         break;
       case "stylishShirt":
           state.isFullTexture = !activeFilterTab[tabName];
@@ -79,7 +83,8 @@ const Customizer = () => {
           downloadCanvasToImage();
         break;
       default:
-        state.isLogoTexture = true;
+        state.isFrontLogoTexture = true;
+        state.isBackLogoTexture = true;
         state.isFullTexture = false;
         break;
     }

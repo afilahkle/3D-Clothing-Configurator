@@ -44,7 +44,7 @@ const Shirt = () => {
           dispose={null}
         >
           {snap.isFullTexture && (
-            <Decal 
+            <Decal
               position={[0, 0, 0]}
               rotation={[0, 0, 0]}
               scale={1}
@@ -52,9 +52,8 @@ const Shirt = () => {
             />
           )}
 
-          {snap.isLogoTexture && (
-            <>
-              <Decal 
+          {snap.isFrontLogoTexture && (
+              <Decal
                 position={snap.logoPosition}
                 rotation={[0, 0, 0]}
                 scale={snap.logoScale}
@@ -63,36 +62,39 @@ const Shirt = () => {
                 depthTest={false}
                 depthWrite={true}
               />
-              <Decal 
-                position={snap.frontTextPosition}
-                rotation={snap.frontTextRotation}
-                scale={snap.frontTextScale}
-                map={createTextTexture(snap.frontText, 'Arial', 64, 'black')}
-              />
-            </>
+          )}
+          {snap.isFrontText && (
+          <Decal
+            position={snap.frontTextPosition}
+            rotation={snap.frontTextRotation}
+            scale={snap.frontTextScale}
+            map={createTextTexture(snap.frontText, 'Arial', 64, 'black')}
+          />
           )}
 
-          <Decal 
-            position={snap.backLogoPosition}
-            rotation={snap.backLogoRotation}
-            scale={snap.backLogoScale}
-            map={backLogoTexture}
-            map-anisotropy={16}
-            depthTest={false}
-            depthWrite={true}
-          />
-
-          <Decal 
-            position={snap.backTextPosition}
-            rotation={snap.backTextRotation}
-            scale={snap.backTextScale}
-            map={createTextTexture(snap.backText, 'Arial', 64, 'black')}
-          />
-
+          {snap.isBackLogoTexture && (
+            <Decal
+              position={snap.backLogoPosition}
+              rotation={snap.backLogoRotation}
+              scale={snap.backLogoScale}
+              map={backLogoTexture}
+              map-anisotropy={16}
+              depthTest={false}
+              depthWrite={true}
+            />
+          )}
+          {snap.isBackText && (
+            <Decal
+              position={snap.backTextPosition}
+              rotation={snap.backTextRotation}
+              scale={snap.backTextScale}
+              map={createTextTexture(snap.backText, 'Arial', 64, 'black')}
+            />
+          )}
         </mesh>
       </group>
     </>
-  )
+  );
 }
 
 export default Shirt
