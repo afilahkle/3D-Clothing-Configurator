@@ -111,7 +111,7 @@ const Customizer = () => {
             {...slideAnimation('left')}
           >
             <div className="flex items-center min-h-screen">
-              <div className="editortabs-container tabs  flex flex-col md:flex-row">
+              <div className="editortabs-container tabs">
                 {EditorTabs.map((tab) => (
                   <Tab 
                     key={tab.name}
