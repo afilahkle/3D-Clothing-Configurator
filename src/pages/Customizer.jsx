@@ -5,9 +5,9 @@ import { useSnapshot } from 'valtio';
 import LogoControls from '../canvas/LogoControls';
 import state from '../store';
 import { downloadCanvasToImage, reader } from '../config/helpers';
-import { EditorTabs, FilterTabs, DecalTypes } from '../config/constants';
+import { EditorTabs, FilterTabs, DecalTypes, texturesLogos } from '../config/constants';
 import { fadeAnimation, slideAnimation } from '../config/motion';
-import { ColorPicker, CustomButton, FilePicker, Tab } from '../components';
+import { ColorPicker, CustomButton, FilePicker, TextureLogoPicker, Tab } from '../components';
 
 const Customizer = () => {
   const snap = useSnapshot(state);
@@ -33,10 +33,29 @@ const Customizer = () => {
         />
       case "logocontrols":
         return <LogoControls />;
+      case "texturelogopicker":
+        return (
+          <TextureLogoPicker
+            texturesLogos={texturesLogos}
+            handleTextureLogoClick={handleTextureLogoClick}
+          />
+        );
       default:
         return null;
     }
   }
+
+  const handleTextureLogoClick = (textureLogo) => {
+    // update the state with the selected texture or logo
+    if (textureLogo.type === "texture") {
+      // update the state with the selected texture
+      state.fullDecal = textureLogo.image;
+    } else if (textureLogo.type === "logo") {
+      // update the state with the selected logo
+      state.logoDecal = textureLogo.image;
+    }
+  };
+  
 
   const handleDecals = (type, result) => {
     const decalType = DecalTypes[type];
@@ -92,7 +111,7 @@ const Customizer = () => {
             {...slideAnimation('left')}
           >
             <div className="flex items-center min-h-screen">
-              <div className="editortabs-container tabs">
+              <div className="editortabs-container tabs  flex flex-col md:flex-row">
                 {EditorTabs.map((tab) => (
                   <Tab 
                     key={tab.name}
