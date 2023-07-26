@@ -1,7 +1,8 @@
 import React from 'react'
+import * as THREE from 'three';
 import { easing } from 'maath';
 import { useSnapshot } from 'valtio';
-import { useFrame } from '@react-three/fiber';
+import { useFrame, useThree } from '@react-three/fiber';
 import { Decal, useGLTF, useTexture, OrbitControls } from '@react-three/drei';
 
 import state from '../store';
@@ -17,6 +18,19 @@ const Shirt = () => {
   useFrame((state, delta) => easing.dampC(materials.lambert1.color, snap.color, 0.25, delta));
 
   const stateString = JSON.stringify(snap);
+
+  const createTextTexture = (text, font, size, color) => {
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    ctx.font = `${size}px ${font}`;
+    const textWidth = ctx.measureText(text).width;
+    canvas.width = textWidth;
+    canvas.height = size;
+    ctx.fillStyle = color;
+    ctx.font = `${size}px ${font}`;
+    ctx.fillText(text, 0, size);
+    return new THREE.CanvasTexture(canvas);
+  }
 
   return (
     <>
@@ -39,15 +53,23 @@ const Shirt = () => {
           )}
 
           {snap.isLogoTexture && (
-            <Decal 
-              position={snap.logoPosition}
-              rotation={[0, 0, 0]}
-              scale={snap.logoScale}
-              map={logoTexture}
-              map-anisotropy={16}
-              depthTest={false}
-              depthWrite={true}
-            />
+            <>
+              <Decal 
+                position={snap.logoPosition}
+                rotation={[0, 0, 0]}
+                scale={snap.logoScale}
+                map={logoTexture}
+                map-anisotropy={16}
+                depthTest={false}
+                depthWrite={true}
+              />
+              <Decal 
+                position={snap.frontTextPosition}
+                rotation={snap.frontTextRotation}
+                scale={snap.frontTextScale}
+                map={createTextTexture(snap.frontText, 'Arial', 64, 'black')}
+              />
+            </>
           )}
 
           <Decal 
@@ -55,6 +77,16 @@ const Shirt = () => {
             rotation={snap.backLogoRotation}
             scale={snap.backLogoScale}
             map={backLogoTexture}
+            map-anisotropy={16}
+            depthTest={false}
+            depthWrite={true}
+          />
+
+          <Decal 
+            position={snap.backTextPosition}
+            rotation={snap.backTextRotation}
+            scale={snap.backTextScale}
+            map={createTextTexture(snap.backText, 'Arial', 64, 'black')}
           />
 
         </mesh>
