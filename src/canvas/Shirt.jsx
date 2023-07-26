@@ -12,6 +12,7 @@ const Shirt = () => {
 
   const logoTexture = useTexture(snap.logoDecal);
   const fullTexture = useTexture(snap.fullDecal);
+  const backLogoTexture = useTexture(snap.backLogoDecal);
 
   useFrame((state, delta) => easing.dampC(materials.lambert1.color, snap.color, 0.25, delta));
 
@@ -48,6 +49,14 @@ const Shirt = () => {
               depthWrite={true}
             />
           )}
+
+          <Decal 
+            position={snap.backLogoPosition}
+            rotation={snap.backLogoRotation}
+            scale={snap.backLogoScale}
+            map={backLogoTexture}
+          />
+
         </mesh>
       </group>
     </>
