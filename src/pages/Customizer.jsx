@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useSnapshot } from 'valtio';
 
 import LogoControls from '../canvas/LogoControls';
+import TextControls from '../canvas/TextControls';
 import state from '../store';
 import { downloadCanvasToImage, reader } from '../config/helpers';
 import { EditorTabs, FilterTabs, DecalTypes, texturesLogos } from '../config/constants';
@@ -18,6 +19,8 @@ const Customizer = () => {
   const [activeFilterTab, setActiveFilterTab] = useState({
     frontLogoShirt: true,
     backLogoShirt: true,
+    frontTextShirt: true,
+    backTextShirt: true,
     stylishShirt: false,
   })
 
@@ -34,6 +37,8 @@ const Customizer = () => {
         />
       case "logocontrols":
         return <LogoControls />;
+      case "textcontrols":
+        return <TextControls />;
       case "texturelogopicker":
         return (
           <TextureLogoPicker
@@ -76,6 +81,12 @@ const Customizer = () => {
       case "backLogoShirt":
           state.isBackLogoTexture = !activeFilterTab[tabName];
         break;
+      case "frontTextShirt":
+          state.isFrontText = !activeFilterTab[tabName];
+        break;
+      case "backTextShirt":
+          state.isBackText = !activeFilterTab[tabName];
+        break;
       case "stylishShirt":
           state.isFullTexture = !activeFilterTab[tabName];
         break;
@@ -85,6 +96,8 @@ const Customizer = () => {
       default:
         state.isFrontLogoTexture = true;
         state.isBackLogoTexture = true;
+        state.isFrontText = true;
+        state.isBackText = true;
         state.isFullTexture = false;
         break;
     }
