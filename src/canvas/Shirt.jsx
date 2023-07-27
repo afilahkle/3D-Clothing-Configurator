@@ -68,7 +68,7 @@ const Shirt = () => {
             position={snap.frontTextPosition}
             rotation={snap.frontTextRotation}
             scale={snap.frontTextScale}
-            map={createTextTexture(snap.frontText, 'Arial', 64, 'black')}
+            map={createTextTexture(snap.frontText, snap.frontTextFont, snap.frontTextSize, snap.frontTextColor)}
           />
           )}
 
@@ -88,7 +88,7 @@ const Shirt = () => {
               position={snap.backTextPosition}
               rotation={snap.backTextRotation}
               scale={snap.backTextScale}
-              map={createTextTexture(snap.backText, 'Arial', 64, 'black')}
+              map={createTextTexture(snap.backText, snap.backTextFont, snap.backTextSize, snap.backTextColor)}
             />
           )}
         </mesh>
