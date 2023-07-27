@@ -56,9 +56,12 @@ const Customizer = () => {
     if (textureLogo.type === "texture") {
       // update the state with the selected texture
       state.fullDecal = textureLogo.image;
-    } else if (textureLogo.type === "logo") {
+    } else if (textureLogo.type === "frontLogo") {
       // update the state with the selected logo
-      state.logoDecal = textureLogo.image;
+      state.frontLogoDecal = textureLogo.image;
+    } else if (textureLogo.type === "backLogo") {
+      // update the state with the selected logo
+      state.backLogoDecal = textureLogo.image
     }
   };
   

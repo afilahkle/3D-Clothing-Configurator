@@ -8,7 +8,7 @@ const LogoControls = () => {
 
   const handlePositionChange = (type, index, value) => {
     if (type === 'front') {
-      state.logoPosition[index] = value;
+      state.frontLogoPosition[index] = value;
     } else if (type === 'back') {
       state.backLogoPosition[index] = value;
     }
@@ -16,7 +16,7 @@ const LogoControls = () => {
 
   const handleScaleChange = (type, value) => {
     if (type === 'front') {
-      state.logoScale = value;
+      state.frontLogoScale = value;
     } else if (type === 'back') {
       state.backLogoScale = value;
     }
@@ -29,13 +29,13 @@ const LogoControls = () => {
           <span className="text-gray-700">FX:</span>
           <button
             className="border border-gray-300 rounded-md p-2"
-            onClick={() => handlePositionChange('front', 0, snap.logoPosition[0] - 0.01)}
+            onClick={() => handlePositionChange('front', 0, snap.frontLogoPosition[0] - 0.01)}
           >
             -
           </button>
           <button
             className="border border-gray-300 rounded-md p-2"
-            onClick={() => handlePositionChange('front', 0, snap.logoPosition[0] + 0.01)}
+            onClick={() => handlePositionChange('front', 0, snap.frontLogoPosition[0] + 0.01)}
           >
             +
           </button>
@@ -44,13 +44,13 @@ const LogoControls = () => {
           <span className="text-gray-700">FY:</span>
           <button
             className="border border-gray-300 rounded-md p-2"
-            onClick={() => handlePositionChange('front', 1, snap.logoPosition[1] - 0.01)}
+            onClick={() => handlePositionChange('front', 1, snap.frontLogoPosition[1] - 0.01)}
           >
             -
           </button>
           <button
             className="border border-gray-300 rounded-md p-2"
-            onClick={() => handlePositionChange('front', 1, snap.logoPosition[1] + 0.01)}
+            onClick={() => handlePositionChange('front', 1, snap.frontLogoPosition[1] + 0.01)}
           >
             +
           </button>
@@ -59,13 +59,13 @@ const LogoControls = () => {
           <span className="text-gray-700">FZ:</span>
           <button
             className="border border-gray-300 rounded-md p-2"
-            onClick={() => handlePositionChange('front', 2, snap.logoPosition[2] - 0.01)}
+            onClick={() => handlePositionChange('front', 2, snap.frontLogoPosition[2] - 0.01)}
           >
             -
           </button>
           <button
             className="border border-gray-300 rounded-md p-2"
-            onClick={() => handlePositionChange('front', 2, snap.logoPosition[2] + 0.01)}
+            onClick={() => handlePositionChange('front', 2, snap.frontLogoPosition[2] + 0.01)}
           >
             +
           </button>
@@ -74,13 +74,13 @@ const LogoControls = () => {
           <span className="text-gray-700">FS:</span>
           <button
             className="border border-gray-300 rounded-md p-2"
-            onClick={() => handleScaleChange('front', snap.logoScale - 0.01)}
+            onClick={() => handleScaleChange('front', snap.frontLogoScale - 0.01)}
           >
             -
           </button>
           <button
             className="border border-gray-300 rounded-md p-2"
-            onClick={() => handleScaleChange('front', snap.logoScale + 0.01)}
+            onClick={() => handleScaleChange('front', snap.frontLogoScale + 0.01)}
           >
             +
           </button>

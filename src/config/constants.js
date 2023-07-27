@@ -51,8 +51,12 @@ export const FilterTabs = [
 ];
 
 export const DecalTypes = {
-  logo: {
-    stateProperty: "logoDecal",
+  frontLogo: {
+    stateProperty: "frontLogoDecal",
+    filterTab: "logoShirt",
+  },
+  backLogo: {
+    stateProperty: "backLogoDecal",
     filterTab: "logoShirt",
   },
   full: {
@@ -88,13 +92,23 @@ export const texturesLogos = [
     type: "texture",
   },
   {
-    name: "Logo 1",
+    name: "Front Logo 1",
     image: logo1,
-    type: "logo",
+    type: "frontLogo",
   },
   {
-    name: "Logo 2",
+    name: "Front Logo 2",
     image: logo2,
-    type: "logo",
+    type: "frontLogo",
+  },
+  {
+    name: "Back Logo 1",
+    image: logo1,
+    type: "backLogo",
+  },
+  {
+    name: "Back Logo 2",
+    image: logo2,
+    type: "backLogo",
   },
 ];

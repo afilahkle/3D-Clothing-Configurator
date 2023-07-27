@@ -2,7 +2,8 @@ import React from 'react';
 
 const TextureLogoPicker = ({ texturesLogos, handleTextureLogoClick }) => {
   const textures = texturesLogos.filter((textureLogo) => textureLogo.type === 'texture');
-  const logos = texturesLogos.filter((textureLogo) => textureLogo.type === 'logo');
+  const frontLogos = texturesLogos.filter((textureLogo) => textureLogo.type === 'frontLogo');
+  const backLogos = texturesLogos.filter((textureLogo) => textureLogo.type === 'backLogo');
 
   const renderImages = (images) => {
     return (
@@ -22,8 +23,10 @@ const TextureLogoPicker = ({ texturesLogos, handleTextureLogoClick }) => {
     <div className='absolute left-full ml-3'>
       <h2>Textures</h2>
       <div className='flex flex-wrap overflow-y-scroll w-40'>{renderImages(textures)}</div>
-      <h2>Logos</h2>
-      <div className='flex flex-wrap overflow-y-scroll w-40'>{renderImages(logos)}</div>
+      <h2>Front Logos</h2>
+      <div className='flex flex-wrap overflow-y-scroll w-40'>{renderImages(frontLogos)}</div>
+      <h2>Back Logos</h2>
+      <div className='flex flex-wrap overflow-y-scroll w-40'>{renderImages(backLogos)}</div>
     </div>
   );
 };

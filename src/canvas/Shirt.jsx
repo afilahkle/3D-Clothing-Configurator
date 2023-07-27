@@ -11,7 +11,7 @@ const Shirt = () => {
   const snap = useSnapshot(state);
   const { nodes, materials } = useGLTF('/shirt.glb');
 
-  const logoTexture = useTexture(snap.logoDecal);
+  const logoTexture = useTexture(snap.frontLogoDecal);
   const fullTexture = useTexture(snap.fullDecal);
   const backLogoTexture = useTexture(snap.backLogoDecal);
 
@@ -54,9 +54,9 @@ const Shirt = () => {
 
           {snap.isFrontLogoTexture && (
               <Decal
-                position={snap.logoPosition}
+                position={snap.frontLogoPosition}
                 rotation={[0, 0, 0]}
-                scale={snap.logoScale}
+                scale={snap.frontLogoScale}
                 map={logoTexture}
                 map-anisotropy={16}
                 depthTest={false}
