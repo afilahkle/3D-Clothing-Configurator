@@ -49,6 +49,8 @@ const Shirt = () => {
               rotation={[0, 0, 0]}
               scale={1}
               map={fullTexture}
+              depthTest={false}
+              depthWrite={true}
             />
           )}
 
