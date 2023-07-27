@@ -1,7 +1,85 @@
 import React from 'react';
 import { useSnapshot } from 'valtio';
-
+import { SketchPicker } from 'react-color';
 import state from '../store';
+
+const fonts = [
+  "Arial",
+  "Times New Roman",
+  "Segoe UI",
+  "Tahoma",
+  "Calibri",
+  "Frutiger",
+  "Helvetica",
+  "Futura PT",
+  "Myriad Pro",
+  "Open Sans",
+  "Roboto",
+  "Verdana",
+  "Adobe Arabic",
+  "Droid Arabic Naskh",
+  "GE SS Unique Light",
+  "Simplon Norm Arabic",
+  "Neue Helvetica Arabic",
+  "Noto Naskh Arabic",
+  "Ubuntu Arabic",
+  "Waseem",
+  "Zuhair",
+  "Dubai",
+  "Amiri",
+  "Bukra",
+  "Bahij Nazanin",
+  "Kufam",
+  "Lalezar",
+  "Mirza",
+  "Sakkal Majalla",
+  "Scheherazade",
+  "Tajawal",
+  "Lateef",
+  "Reem Kufi",
+  "Almarai",
+  "Cairo",
+  "Harmattan",
+  "Janna LT",
+  "Mada",
+  "Muna",
+  "JF Flat",
+  "JF Hitham",
+  "JF Nizar",
+  "JF Deco",
+  "JF Ziba",
+  "JF Unicode Naskh",
+  "JF Typist",
+  "JF Flat Arabic",
+  "JF Nizar Serif",
+  "JF Zaytoon",
+  "JF Zuhair",
+  "JF Deco Arabic",
+  "JF Hujjat",
+  "JF Noon",
+  "JF Raya",
+  "JF Riqa",
+  "JF Tulisan",
+  "JF Adeeb",
+  "JF Zarkan",
+  "JF Besmellah",
+  "JF Noori Nastaleeq",
+  "JF Noori Nastaleeq Kasheeda",
+  "JF Noori Nastaleeq V1.0",
+  "JF Noori Nastaleeq V2.0",
+  "JF Noori Nastaleeq V3.0",
+  "JF Noori Nastaleeq V4.0",
+  "JF Noori Nastaleeq V5.0",
+  "JF Noori Nastaleeq V6.0",
+  "JF Noori Nastaleeq V7.0",
+  "JF Noori Nastaleeq V8.0",
+  "JF Noori Nastaleeq V9.0",
+  "JF Noori Nastaleeq V10.0",
+  "JF Noori Nastaleeq V11.0",
+  "JF Noori Nastaleeq V12.0",
+  "JF Noori Nastaleeq V13.0",
+  "JF Noori Nastaleeq V14.0"
+];
 
 const TextControls = () => {
   const snap = useSnapshot(state);
@@ -201,19 +279,21 @@ const TextControls = () => {
       </div>
       <div className="flex items-center space-x-2">
         <span className="text-gray-700">FF:</span>
-        <input
-          type="text"
-          value={snap.frontTextFont}
-          onChange={(event) => handleFontChange('front', event.target.value)}
-        />
+        <select value={snap.frontTextFont} onChange={(event) => handleFontChange('front', event.target.value)}>
+          {fonts.map((font) => (
+            <option key={font} value={font}>
+              {font}
+            </option>
+          ))}
+        </select>
       </div>
       <div className="flex items-center space-x-2">
         <span className="text-gray-700">FC:</span>
-        <input
-          type="color"
-          value={snap.frontTextColor}
-          onChange={(event) => handleColorChange('front', event.target.value)}
-        />
+         <SketchPicker 
+            color={snap.frontTextColor}
+            disableAlpha
+            onChange={(color) => handleColorChange('front', color.hex)}
+          />
       </div>
 
       {/*  Back text controls */}
@@ -362,18 +442,20 @@ const TextControls = () => {
       </div>
       <div className="flex items-center space-x-2">
         <span className="text-gray-700">BF:</span>
-        <input
-          type="text"
-          value={snap.backTextFont}
-          onChange={(event) => handleFontChange('back', event.target.value)}
-        />
+        <select value={snap.backTextFont} onChange={(event) => handleFontChange('back', event.target.value)}>
+          {fonts.map((font) => (
+            <option key={font} value={font}>
+              {font}
+            </option>
+          ))}
+        </select>
       </div>
       <div className="flex items-center space-x-2">
         <span className="text-gray-700">BC:</span>
-        <input
-          type="color"
-          value={snap.backTextColor}
-          onChange={(event) => handleColorChange('back', event.target.value)}
+        <SketchPicker 
+          color={snap.backTextColor}
+          disableAlpha
+          onChange={(color) => handleColorChange('back', color.hex)}
         />
       </div>
     </div>
