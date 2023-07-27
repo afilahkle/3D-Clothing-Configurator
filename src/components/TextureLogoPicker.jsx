@@ -22,11 +22,11 @@ const TextureLogoPicker = ({ texturesLogos, handleTextureLogoClick }) => {
   return (
     <div className='absolute left-full ml-3'>
       <h2>Textures</h2>
-      <div className='flex flex-wrap overflow-y-scroll w-40'>{renderImages(textures)}</div>
+      <div className='flex flex-wrap overflow-y-scroll w-40 h-40'>{renderImages(textures)}</div>
       <h2>Front Logos</h2>
-      <div className='flex flex-wrap overflow-y-scroll w-40'>{renderImages(frontLogos)}</div>
+      <div className='flex flex-wrap overflow-y-scroll w-40 h-40'>{renderImages(frontLogos)}</div>
       <h2>Back Logos</h2>
-      <div className='flex flex-wrap overflow-y-scroll w-40'>{renderImages(backLogos)}</div>
+      <div className='flex flex-wrap overflow-y-scroll w-40 h-40'>{renderImages(backLogos)}</div>
     </div>
   );
 };
