@@ -17,3 +17,7 @@ This project is built using Vite, React, and react-three/fiber. It allows users 
 ## Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request.
+
+---
+If you find this project useful, please consider giving it a star ⭐. Your support is greatly appreciated!
+---
